@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.superpose {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*     transform: scale(50%); */
+    background-position: top;
+}
+
+#cloud1 {
+    background-image: url('/cloud/1.png');
+}
+
+#cloud2 {
+    background-image: url('/cloud/2.png');
+
+}
+
+#cloud3 {
+    background-image: url('/cloud/3.png');
+
+}
+
+#cloud4 {
+    background-image: url('/cloud/4.png');
+}
+
+.spaceship {
+    position: absolute;
+    left: 880px;
+    top: 815px;
+    width: 64px;
+    height: 92px;
+}
+
+.enemy {
+    background-image: url('./enemy.png');
+    position: absolute;
+    width: 64px;
+    height: 89px;
+}
+
+.border {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.missile {
+    background-image: url('./Heros_missile.png');
+    width: 31px;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(50%, 0%);
+}
+
+.enemies {
+    position: fixed;
+    display: none;
+    rotate: 90deg;
+    width: 92px;
+    height: 64px;
+    background-image: url('./enemy.png');
+}
+
+.timer {
+    z-index: 10000;
+    text-align: center;
+    font-size: x-large;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 25px;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 0px 50px;
+    border-left: solid 2px #DDBE3F;
+    border-bottom: solid 3px #DDBE3F;
+}
+
+p {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: medium;
+    font-weight: 700;
+}
+
+.pause-menu {
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px white solid;
+}
+
+.resume {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    color: black;
+}
+
+.restart {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    color: black;
+}
+
+.hearts {
+    display: flex;
+    gap: 5px;
+}
+
+.heart {
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.game-over {
+    background-color: rgba(255, 0, 0, 0.47);
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    z-index: 10000;
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-over-message {
+    color: wheat;
+    z-index: 100000;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.game-over-image {
+    width: 400px;
+    height: 300px;
+}
+
+.restart-gamOve {
+    border: solid 1px white;
+    background: darken(blue, 5%);
+    color: darken(blue, 60%);
+    position: relative;
+    transform: skewX(-20deg);
+    height: 40px;
+    width: 100px;
+    bottom: 20%;
+
+    /* button blanc, + login text */
+    &::before {
+        height: 40px;
+        width: 100px;
+        border: solid 1px rgb(255, 224, 215);
+        content: attr(data-label);
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: -0.7rem;
+        left: 0.5rem;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        &::before {
+            top: -2px;
+            left: -2px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.victory-overlay {
+    background-color: rgba(30, 255, 0, 0.47);
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    z-index: 10000;
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    display: none;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.victory-message {
+    color: wheat;
+    z-index: 100000;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.victory-image {
+    width: 400px;
+    height: 400px;
+}
+
+.restart-victory {
+    border: solid 1px white;
+    background: darken(blue, 5%);
+    color: darken(blue, 60%);
+    position: relative;
+    transform: skewX(-20deg);
+    height: 40px;
+    width: 100px;
+    bottom: 40%;
+
+    /* button blanc, + login text */
+    &::before {
+        height: 40px;
+        width: 100px;
+        border: solid 1px rgb(255, 224, 215);
+        content: attr(data-label);
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: -0.7rem;
+        left: 0.5rem;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        &::before {
+            top: -2px;
+            left: -2px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.fps {
+    position: absolute;
+    width: 65px;
+    right: 0;
+    text-align: end;
+    margin-top: 1.4% ;
+    background-color: white;
+    border-radius: 0px 0px 0px 50px;
+    border-left: solid 2px #DDBE3F;
+    border-bottom: solid 3px #DDBE3F;
+}
+
+.start-menu {
+    position: fixed;
+    border: 3px solid white;
+    background-color: rgba(255, 255, 255, 0.67);
+    width: 250px;
+    height: 250px;
+    top: 45%;
+    left: 47.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10000;    
+}
+
+.num-enemies-select {
+    font-size: x-large;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:  blue;
+    text-align: center;
+}
+
+.num-enemies {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    text-align: center;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.play-button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 75px;
+    width: 75px;
+    color: blue;
+    font-size: xx-large;
+    border-radius: 0px 30px 0px 30px;
+    border-right: solid 1px blue;
+    border-top: solid 3px blue;
+    border-left: solid 1px blue;
+    border-bottom: solid 3px blue;
+}

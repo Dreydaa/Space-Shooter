@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>Invasion</title>    
+    </head>
+
+    <body>
+        <!-- Background -->
+
+        <div class="Background">
+            <img id="cloud1" class="superpose"/>
+            <img id="cloud2" class="superpose"/>
+            <img id="cloud3" class="superpose"/>
+            <img id="cloud4" class="superpose"/>
+        </div>
+
+        <!-- pause menu  -->
+        <div id="start-menu" class="start-menu">
+        <div class="welcome">Welcome to Invasion ! </div>
+            <label class="num-enemies-select" for="num-enemies">Number of enemies: </label>
+            <input class="num-enemies" id="num-enemies" type="number" min="0" max="10000" value="7">
+            <button class="play-button" id="play-button">Play</button>
+        </div>
+
+        
+        <div class="pause-menu">
+            <p>Paused</p>
+            <button class="resume">Resume</button>
+            <button class="restart">Restart</button>
+        </div>
+
+        <div class="game-over" id="game-over-overlay">
+            <img class="game-over-image" src="https://s12.gifyu.com/images/SfTKm.gif">
+            <div id="game-over-message" class="game-over-message">Game Over</div>
+            <button class="restart-gamOve">Restart</button>
+        </div>
+
+        <div class="victory-overlay" id="victoryOverlay">
+            <img class="victory-image" src="https://s10.gifyu.com/images/Sfg3s.gif">
+            <div id="victory-message" class="victory-message">Victory !</div>
+            <button class="restart-victory">Restart</button>
+        </div>
+
+        <div id="missiles"></div>
+        <div id="enemies"></div>
+
+        <div class="fps"><span id="fps">--</span>FPS</div>
+
+        <!-- border + ship -->
+
+        <div class="border"></div>
+        <img class="spaceship" src="hero.png"></img>
+        <!-- life -->
+
+        <div class="hearts"></div>
+
+        <!-- timer -->
+        
+        <div class="timer"></div>
+
+
+    </body> 
+    <script type="module" src="app.js"></script>
+    </html> 
